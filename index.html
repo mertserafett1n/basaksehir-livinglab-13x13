@@ -7,6 +7,10 @@
   <title>13×13 İnovasyon Yarışması | Başakşehir Living Lab</title>
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="stylesheet" href="./style.css">
+  <script src="./assets/vendor/gsap.min.js" defer></script>
+  <script src="./assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="./js/mascot.js" defer></script>
+  <script src="./js/schedule.js" defer></script>
   <script src="./main.js" defer></script>
 </head>
 <body id="ust">
@@ -30,7 +34,15 @@
       <div class="hero-image" aria-hidden="true"></div>
       <div class="wrap hero-content">
         <p class="eyebrow"><span></span> Başakşehir Belediyesi &amp; Başakşehir Living Lab</p>
-        <h1 id="title"><span class="hero-type">13<span>×</span>13</span><span class="hero-name">İnovasyon Yarışması</span></h1>
+        <h1 id="title">
+          <span class="hero-title-label">13×13</span>
+          <span class="hero-type" aria-hidden="true">
+            <span>13</span>
+            <img class="hero-x" src="./assets/13x13-x.png" width="183" height="164" alt="">
+            <span class="hero-number-offset">13</span>
+          </span>
+          <span class="hero-name">İnovasyon Yarışması</span>
+        </h1>
         <p class="intro">13 gerçek problemden birini seç. Çözümünü geliştir, prototipe dönüştür ve gerçek koşullarda test et.</p>
         <div class="actions">
           <a class="button" href="https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu">Yarışmaya Başvur <span class="external-arrow" aria-hidden="true"></span></a>
@@ -77,7 +89,7 @@
     </section>
     <section id="takvim" class="section schedule">
       <div class="wrap schedule-grid">
-        <div>
+        <div class="schedule-intro">
           <p class="eyebrow">Yarışma takvimi</p>
           <h2>Başvurudan<br>ödül törenine.</h2>
           <p class="body-copy">Son başvurudan final sunumuna kadar her aşamanın tarihini ve senden ne beklendiğini incele.</p>

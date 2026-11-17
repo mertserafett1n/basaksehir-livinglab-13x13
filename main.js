@@ -23,3 +23,5 @@ document.addEventListener('keydown', (event) => {
     menu.focus();
   }
 });
+
+window.LivingLab?.initSchedule(document.querySelector('#takvim'));
