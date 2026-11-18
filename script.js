@@ -35,15 +35,11 @@ const normalize=s=>s.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u030
 const grid=$('#problemGrid');
 const problemSearch=$('#problemSearch');
 const resultCount=$('#resultCount');
-const showAllWrap=$('#showAllWrap');
-const showAllBtn=$('#showAllProblems');
 const modal=$('#problemDialog');
-const featured=[2,5,4,1,12,10];
-let showAll=false;
 let dialogTrigger=null;
 function renderProblems(){
   const term=normalize(problemSearch.value.trim());
-  const source=term?PROBLEMS.filter(p=>normalize(`${p.title} ${p.question}`).includes(term)):(showAll?PROBLEMS:featured.map(n=>PROBLEMS.find(p=>p.number===n)));
+  const source=term?PROBLEMS.filter(p=>normalize(`${p.title} ${p.question}`).includes(term)):PROBLEMS;
   grid.innerHTML='';
   if(!source.length){
     const empty=document.createElement('p');empty.className='empty-results';empty.textContent='Aradığınız ifadeye uygun problem alanı bulunamadı.';grid.appendChild(empty);
@@ -52,7 +48,7 @@ function renderProblems(){
     const btn=document.createElement('button');
     btn.type='button';btn.className='problem-card';btn.dataset.number=String(p.number);
     btn.setAttribute('aria-label',`${p.number}. problem: ${p.title} — detayları aç`);
-    const num=document.createElement('span');num.className='problem-number';num.textContent=String(p.number).padStart(2,'0');
+    const num=document.createElement('span');num.className='problem-number';num.textContent=String(p.number);
     const title=document.createElement('h3');title.textContent=p.title;
     const bottom=document.createElement('span');bottom.className='problem-bottom';
     const tag=document.createElement('span');tag.textContent='PROJE SORUSUNU GÖR';
@@ -61,12 +57,10 @@ function renderProblems(){
     btn.addEventListener('click',()=>openProblem(p,btn));grid.appendChild(btn);
   }
   resultCount.textContent=term?`${source.length} sonuç`:`${PROBLEMS.length} alan`;
-  showAllWrap.hidden=Boolean(term);
-  showAllBtn.textContent=showAll?'Öne çıkan alanları göster  ↗':'Tüm 13 alanı göster  ↘';
 }
 function openProblem(problem,trigger){
   dialogTrigger=trigger;
-  $('#dialogNumber').textContent=`PROBLEM / ${String(problem.number).padStart(2,'0')}`;
+  $('#dialogNumber').textContent=`PROBLEM / ${String(problem.number)}`;
   $('#dialogTitle').textContent=problem.title;
   $('#dialogQuestion').textContent=problem.question;
   if(typeof modal.showModal==='function'){
@@ -77,7 +71,6 @@ function openProblem(problem,trigger){
   }
 }
 problemSearch.addEventListener('input',renderProblems);
-showAllBtn.addEventListener('click',()=>{showAll=!showAll;renderProblems();if(!showAll)grid.scrollIntoView({block:'start',behavior:'smooth'});});
 $('#dialogClose').addEventListener('click',()=>modal.close());
 modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});
 modal.addEventListener('close',()=>{document.body.classList.remove('dialog-open');dialogTrigger?.focus();});
