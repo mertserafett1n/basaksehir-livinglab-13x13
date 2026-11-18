@@ -3,150 +3,196 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Başakşehir Living Lab 13×13 İnovasyon Yarışması. 13 problem alanını, katılım koşullarını, takvimi ve ödülleri incele.">
-  <title>13×13 İnovasyon Yarışması | Başakşehir Living Lab</title>
-  <link rel="icon" href="./assets/favicon.ico">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./assets/vendor/gsap.min.js" defer></script>
-  <script src="./assets/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="./js/mascot.js" defer></script>
-  <script src="./js/schedule.js" defer></script>
-  <script src="./js/hero-greeting.js" defer></script>
-  <script src="./main.js" defer></script>
+  <meta name="theme-color" content="#f5f8fa">
+  <meta name="description" content="Başakşehir Living Lab 13×13 İnovasyon Yarışması: 13 gerçek problem alanı, yenilikçi çözümler, başvuru ve yarışma takvimi.">
+  <title>13×13 | Başakşehir Living Lab İnovasyon Yarışması</title>
+  <link rel="icon" href="assets/x-original.png" type="image/png">
+  <link rel="preload" href="assets/intro-13x13.png" as="image">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-<body id="ust">
-  <a class="skip" href="#icerik">İçeriğe geç</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="#ust"><img src="./assets/bll-logo.png" width="390" height="127" alt="Başakşehir Living Lab"></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" hidden>Menü <span aria-hidden="true">☰</span></button>
-      <nav id="nav" aria-label="Sayfa menüsü">
-        <a href="#yarisma">Yarışma</a>
-        <a href="#problemler">Problem alanları</a>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner container">
+      <a href="#anasayfa" class="brand" aria-label="13×13 ana sayfa">
+        <span class="brand-numbers">13<span>×</span>13</span>
+        <span class="brand-rule" aria-hidden="true"></span>
+        <span class="brand-descriptor">İNOVASYON<br>YARIŞMASI</span>
+      </a>
+      <button class="mobile-menu-btn" id="menuToggle" aria-controls="mainNav" aria-expanded="false" aria-label="Menüyü aç"><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Ana menü">
+        <a href="#hakkinda">Hakkında</a>
+        <a href="#problemler">Problem Alanları</a>
+        <a href="#surec">Süreç</a>
         <a href="#takvim">Takvim</a>
         <a href="#oduller">Ödüller</a>
         <a href="#sss">SSS</a>
+        <a href="https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu" target="_blank" rel="noopener noreferrer" class="button button-small button-dark">Başvur <span aria-hidden="true">↗</span></a>
       </nav>
-      <a class="button header-cta" href="https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu">Başvur <span class="external-arrow" aria-hidden="true"></span></a>
     </div>
   </header>
-  <main id="icerik">
-    <section class="hero" aria-labelledby="title">
-      <div class="hero-image" aria-hidden="true"></div>
-      <div class="wrap hero-content">
-        <p class="eyebrow"><span></span> Başakşehir Belediyesi &amp; Başakşehir Living Lab</p>
-        <h1 id="title">
-          <span class="hero-title-label">13×13</span>
-          <span class="hero-type" aria-hidden="true">
-            <span>13</span>
-            <img class="hero-x" src="./assets/13x13-x.png" width="183" height="164" alt="">
-            <span class="hero-number-offset">13</span>
-          </span>
-          <span class="hero-name">İnovasyon Yarışması</span>
-        </h1>
-        <p class="intro">13 gerçek problemden birini seç. Çözümünü geliştir, prototipe dönüştür ve gerçek koşullarda test et.</p>
-        <div class="actions">
-          <a class="button" href="https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu">Yarışmaya Başvur <span class="external-arrow" aria-hidden="true"></span></a>
-          <a class="button secondary" href="#problemler">13 Problemi Keşfet <span aria-hidden="true">↓</span></a>
+
+  <div class="opening-x" aria-hidden="true">
+    <img id="openingX" src="assets/intro-x.png" alt="" width="1536" height="1024">
+  </div>
+
+  <main id="main">
+    <section class="hero" id="anasayfa" data-x-scene="hero" aria-labelledby="intro-title">
+      <div class="intro-scene" id="introScene">
+        <h1 id="intro-title" class="visually-hidden">13×13 Başakşehir Living Lab İnovasyon Yarışması</h1>
+        <div class="intro-mark" id="introMark" aria-hidden="true">
+          <img class="intro-mark-complete" src="assets/intro-13x13.png" width="2048" height="682" alt="" fetchpriority="high">
+          <img class="intro-mark-digits" src="assets/intro-13-13.png" width="2048" height="682" alt="">
         </div>
-        <p class="deadline">Son başvuru <strong><time datetime="2027-01-15T23:59:00+03:00">15 Ocak 2027 · 23.59</time></strong></p>
+        <a class="intro-scroll" href="#hakkinda">
+          <span class="intro-scroll-icon" aria-hidden="true"></span>
+          <span>Keşfetmek için kaydır</span>
+        </a>
       </div>
     </section>
-    <section id="yarisma" class="section about">
-      <div class="wrap about-grid">
-        <div>
-          <p class="eyebrow">Yarışma hakkında</p>
-          <h2>Bir problem seç.<br>Çözümünü geliştir.</h2>
-          <p class="body-copy">Afet yönetiminden gıdaya, ulaşımdan finansal teknolojilere uzanan 13 alanda uygulanabilir ve ölçülebilir çözümler aranıyor. Seçilen projeler, eğitim ve mentorluk desteğiyle prototip ve pilot uygulama aşamalarına hazırlanıyor.</p>
-          <a class="text-link" href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi">Resmî şartnameyi oku <span class="external-arrow" aria-hidden="true"></span></a>
+
+    <div class="info-strip" aria-label="Yarışmanın öne çıkan bilgileri">
+      <div class="container info-strip-inner">
+        <span><b>13</b> gerçek problem</span><span class="strip-divider"></span>
+        <span><b>5</b> başvuru kategorisi</span><span class="strip-divider"></span>
+        <span><b>Ücretsiz</b> katılım</span><span class="strip-divider"></span>
+        <span><b>Gerçek</b> etki</span>
+      </div>
+    </div>
+
+    <section class="section about-section" id="hakkinda" data-x-scene="about">
+      <div class="container section-grid">
+        <div class="section-heading-block reveal">
+          <span class="eyebrow">01 / HAKKINDA</span>
+          <h2 class="section-title">Bir problemi<br>değiştir.<br><em>Bir şehri etkile.</em></h2>
         </div>
-        <figure class="poster">
-          <img src="./assets/afis.webp" width="1600" height="620" loading="lazy" alt="Başakşehir Living Lab 13×13 İnovasyon Yarışması afişi">
-          <figcaption>13×13 İnovasyon Yarışması resmî afişi</figcaption>
-        </figure>
+        <div class="about-right reveal">
+          <p class="section-lede">13×13 İnovasyon Yarışması, Başakşehir Belediyesi ve Başakşehir Living Lab tarafından düzenleniyor.</p>
+          <p class="body-copy">Yarışma; kent yaşamındaki 13 gerçek ihtiyaca yönelik yenilikçi, uygulanabilir ve ölçülebilir çözümler geliştirmeyi amaçlıyor. Seçilen projeler eğitim, mentorluk ve teknik desteklerle prototipleme ve pilot uygulamaya hazırlanıyor.</p>
+          <div class="about-points">
+            <div><span class="point-number">01</span><span>Gerçek ihtiyaçlara<br>odaklan</span></div>
+            <div><span class="point-number">02</span><span>Çözümünü<br>geliştir ve test et</span></div>
+            <div><span class="point-number">03</span><span>Etkini görünür<br>kıl</span></div>
+          </div>
+          <a href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi" class="text-link" target="_blank" rel="noopener noreferrer">Yarışma şartnamesini incele <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
-    <section id="problemler" class="section light">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">Problem alanları</p><h2>Hangi probleme<br>çözüm üreteceksin?</h2></div>
-          <p>İlgi alanına uygun başlığı aç, problem özetini incele ve çözümünü hangi ihtiyaca odaklayacağını belirle.</p>
+
+    <section class="section problems-section" id="problemler" data-x-scene="problems">
+      <div class="container">
+        <div class="section-top reveal">
+          <div><span class="eyebrow">02 / PROBLEM ALANLARI</span><h2 class="section-title">13 gerçek problem.<br><em>Senin çözümün.</em></h2></div>
+          <p class="section-description">İlgi duyduğun alanı seç, proje sorusunu incele ve çözümünü geliştir.</p>
         </div>
-        <div class="challenge-grid"><details class="challenge"><summary><span class="challenge-number">01</span><span>Afetlere dayanıklı kentler</span><span class="plus" aria-hidden="true"></span></summary><p>Afet risklerini önceden belirleyecek, uyarı ve tahliyeyi hızlandıracak ya da afet sonrası koordinasyonu iyileştirecek çözümler geliştir.</p></details>
-<details class="challenge"><summary><span class="challenge-number">02</span><span>Akıllı ulaşım ve erişilebilirlik</span><span class="plus" aria-hidden="true"></span></summary><p>Trafik, park, toplu taşıma bağlantıları ve yaya güvenliği gibi sorunlara erişilebilir çözümler tasarla.</p></details>
-<details class="challenge"><summary><span class="challenge-number">03</span><span>İklime uyum ve sürdürülebilirlik</span><span class="plus" aria-hidden="true"></span></summary><p>Sel, kuraklık, kirlilik ve sıcaklık gibi çevresel riskleri izleyecek veya etkilerini azaltacak çözümler geliştir.</p></details>
-<details class="challenge"><summary><span class="challenge-number">04</span><span>Kültür, sanat ve turizm</span><span class="plus" aria-hidden="true"></span></summary><p>Kültürel mirası ve yerel üretimi görünür kıl. Ziyaretçiler için erişilebilir deneyimler tasarla.</p></details>
-<details class="challenge"><summary><span class="challenge-number">05</span><span>Geri dönüşüm ve atık yönetimi</span><span class="plus" aria-hidden="true"></span></summary><p>Atığı kaynağında azaltmayı, ayrıştırmayı ve malzemeleri yeniden kullanmayı kolaylaştır.</p></details>
-<details class="challenge"><summary><span class="challenge-number">06</span><span>Sürdürülebilir gıda ve akıllı tarım</span><span class="plus" aria-hidden="true"></span></summary><p>Üretim kayıplarını ve gıda israfını azalt. Gıdanın üretimden tüketime izlenebilirliğini iyileştir.</p></details>
-<details class="challenge"><summary><span class="challenge-number">07</span><span>Sağlık, spor ve iyi yaşam</span><span class="plus" aria-hidden="true"></span></summary><p>Fiziksel aktiviteyi, sağlıklı yaşam alışkanlıklarını ve koruyucu hizmetlere erişimi destekle.</p></details>
-<details class="challenge"><summary><span class="challenge-number">08</span><span>Su yönetimi ve temiz enerji</span><span class="plus" aria-hidden="true"></span></summary><p>Su ve enerji tüketimini izleyen, kayıpları erken fark eden veya yenilenebilir kaynakların kullanımını artıran bir yaklaşım tasarla.</p></details>
-<details class="challenge"><summary><span class="challenge-number">09</span><span>Eğitim, beceri ve istihdam</span><span class="plus" aria-hidden="true"></span></summary><p>Gençlerin beceri kazanmasına, deneyim edinmesine ve eğitimden iş yaşamına geçmesine yardımcı ol.</p></details>
-<details class="challenge"><summary><span class="challenge-number">10</span><span>Bilim, ileri teknoloji ve uzay</span><span class="plus" aria-hidden="true"></span></summary><p>Bilimsel bilgi ve ileri teknolojiyi somut bir toplumsal, çevresel veya endüstriyel ihtiyaca uygula.</p></details>
-<details class="challenge"><summary><span class="challenge-number">11</span><span>Sosyal inovasyon ve toplumsal yaşam</span><span class="plus" aria-hidden="true"></span></summary><p>Sosyal dışlanmayı azaltan, fırsat eşitliğini ve dayanışmayı güçlendiren çözümler geliştir.</p></details>
-<details class="challenge"><summary><span class="challenge-number">12</span><span>Dijital dönüşüm, yapay zekâ ve siber güvenlik</span><span class="plus" aria-hidden="true"></span></summary><p>Dijital hizmetleri daha erişilebilir ve güvenli hâle getirecek veri, yapay zekâ veya otomasyon çözümleri tasarla.</p></details>
-<details class="challenge"><summary><span class="challenge-number">13</span><span>Finansal teknolojiler ve yenilikçi ekonomi</span><span class="plus" aria-hidden="true"></span></summary><p>Güvenli ödemeler, bütçe yönetimi, tasarruf ve finansal okuryazarlık alanlarında çözümler geliştir.</p></details></div>
-        <a class="text-link" href="https://basaksehirlivinglab.com/13-x-13-problem-konu-basliklari">Resmî problem kartlarının tamamını oku <span class="external-arrow" aria-hidden="true"></span></a>
+        <div class="problem-toolbar reveal">
+          <label class="search-field"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="1.8"/></svg><input id="problemSearch" autocomplete="off" type="search" placeholder="Problem alanlarında ara" aria-label="Problem alanlarında ara"></label>
+          <span class="result-count" id="resultCount" aria-live="polite">13 alan</span>
+        </div>
+        <div class="problem-grid" id="problemGrid" aria-live="polite">
+          <noscript>13 problem alanını incelemek için <a href="https://basaksehirlivinglab.com/13-x-13-problem-konu-basliklari">resmî konu başlıkları sayfasını</a> ziyaret edin.</noscript>
+        </div>
+        <div class="center-action" id="showAllWrap"><button class="button button-outline" id="showAllProblems" type="button">Tüm 13 alanı göster <span aria-hidden="true">↘</span></button></div>
       </div>
     </section>
-    <section id="takvim" class="section schedule">
-      <div class="wrap schedule-grid">
-        <div class="schedule-intro">
-          <p class="eyebrow">Yarışma takvimi</p>
-          <h2>Başvurudan<br>ödül törenine.</h2>
-          <p class="body-copy">Son başvurudan final sunumuna kadar her aşamanın tarihini ve senden ne beklendiğini incele.</p>
-          <a class="text-link" href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi">Güncel tarihler ve koşullar <span class="external-arrow" aria-hidden="true"></span></a>
+
+    <section class="section process-section" id="surec" data-x-scene="process">
+      <div class="container">
+        <div class="section-top reveal">
+          <div><span class="eyebrow">03 / SÜREÇ</span><h2 class="section-title">Fikirden<br><em>gerçek çözüme.</em></h2></div>
+          <p class="section-description">Sadece bir fikir değil; test edilebilir, ölçülebilir ve uygulanabilir bir çözüm geliştir.</p>
         </div>
-        <ol class="timeline"><li><div class="stage-date">15 Ocak 2027 · 23.59</div><div><h3>Başvuru ve proje teslimi</h3><p>Bir problem alanı seç ve çözüm önerinle resmî başvuru formunu tamamla.</p></div></li>
-<li><div class="stage-date">18–25 Ocak 2027</div><div><h3>Ön eleme</h3><p>Başvuru koşulları ve projenin seçilen probleme uygunluğu incelenir. Sonuçlar 27 Ocak’ta açıklanır.</p></div></li>
-<li><div class="stage-date">28 Ocak–10 Şubat 2027</div><div><h3>Jüri değerlendirmesi</h3><p>Jüri, projenin özgünlüğünü, uygulanabilirliğini ve etkisini değerlendirir. PoC aşamasına geçen projeler 12 Şubat’ta açıklanır.</p></div></li>
-<li><div class="stage-date">13 Şubat 2027</div><div><h3>Bootcamp ve mentorluk</h3><p>Seçilen ekipler proje geliştirme, eğitim ve mentorluk oturumlarına katılır.</p></div></li>
-<li><div class="stage-date">15 Şubat–31 Mart 2027</div><div><h3>Kavram kanıtı (PoC)</h3><p>Seçilen katılımcılar çözümlerinin temel işlevlerini gösteren test edilebilir bir uygulama geliştirir.</p></div></li>
-<li><div class="stage-date">9–10 Nisan 2027</div><div><h3>Final sunumları</h3><p>Finalistler çözümlerini ve pilot uygulama planlarını jüriye sunar.</p></div></li>
-<li><div class="stage-date">27 Nisan 2027</div><div><h3>Ödül töreni</h3><p>Ödül töreni Başakşehir Belediyesi Konferans Salonu’nda düzenlenir.</p></div></li></ol>
+        <div class="process-grid reveal">
+          <article class="process-item"><span class="step-num">01</span><div class="step-mark"></div><h3>Problemi seç</h3><p>13 başlıktan çözüm üretmek istediğin problemi belirle.</p></article>
+          <article class="process-item"><span class="step-num">02</span><div class="step-mark"></div><h3>Fikrini paylaş</h3><p>Çözüm önerini resmî başvuru platformu üzerinden ilet.</p></article>
+          <article class="process-item"><span class="step-num">03</span><div class="step-mark"></div><h3>Geliştir ve test et</h3><p>Değerlendirmeleri geçen projeler PoC sürecine hazırlanır.</p></article>
+          <article class="process-item"><span class="step-num">04</span><div class="step-mark"></div><h3>Finale taşı</h3><p>Çözümünü jüriye sun, ölçülebilir etkisini göster.</p></article>
+        </div>
       </div>
     </section>
-    <section id="oduller" class="section light">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">Katılım ve ödüller</p><h2>Kimler katılabilir?</h2></div>
-          <p>Beş katılım kategorisi kendi içinde değerlendirilir. Başvuruna uygun kategoriyi ve derece ödüllerini incele.</p>
+
+    <section class="section timeline-section" id="takvim" data-x-scene="timeline">
+      <div class="container">
+        <div class="section-top reveal">
+          <div><span class="eyebrow">04 / TAKVİM</span><h2 class="section-title">Takvimini<br><em>not et.</em></h2></div>
+          <p class="section-description">Yarışma takvimi şartnameye dayanmaktadır; organizasyon gerekli durumlarda değişiklik yapabilir.</p>
         </div>
-        <div class="reward-table" tabindex="0" role="region" aria-label="Kategoriye göre ödüller">
-          <table>
-            <thead><tr><th scope="col">Katılımcı kategorisi</th><th scope="col">Birincilik</th><th scope="col">İkincilik</th><th scope="col">Üçüncülük</th></tr></thead>
-            <tbody><tr><th scope="row">Gençler<small>Ortaokul, lise ve yükseköğretim öğrencileri ile yeni mezunlar</small></th><td>150.000 TL</td><td>100.000 TL</td><td>50.000 TL</td></tr>
-<tr><th scope="row">Araştırmacılar<small>Akademisyenler ve bağımsız araştırmacılar</small></th><td>210.000 TL</td><td>120.000 TL</td><td>70.000 TL</td></tr>
-<tr><th scope="row">Kurumlar<small>Kamu kurumları, STK’lar ve özel sektör kuruluşları</small></th><td>270.000 TL</td><td>140.000 TL</td><td>90.000 TL</td></tr>
-<tr><th scope="row">Startup’lar<small>Girişimciler ve MVP veya PoC geliştiren ekipler</small></th><td>240.000 TL</td><td>130.000 TL</td><td>80.000 TL</td></tr>
-<tr><th scope="row">Genel başvuru<small>Bireysel katılımcılar ve yenilikçi çözüm sahipleri</small></th><td>180.000 TL</td><td>110.000 TL</td><td>60.000 TL</td></tr></tbody>
-          </table>
+        <div class="timeline-list reveal">
+          <div class="timeline-item is-emphasis"><div class="timeline-rail"><span></span></div><div class="timeline-date">07 KAS 2026</div><div class="timeline-text"><h3>Duyuru</h3><p>Yarışmanın ilanı</p></div></div>
+          <div class="timeline-item is-highlight"><div class="timeline-rail"><span></span></div><div class="timeline-date">15 OCA 2027 <small>23.59</small></div><div class="timeline-text"><h3>Son başvuru</h3><p>Başvuru ve proje teslimi için son tarih</p></div></div>
+          <div class="timeline-item"><div class="timeline-rail"><span></span></div><div class="timeline-date">18–27 OCA 2027</div><div class="timeline-text"><h3>Ön eleme</h3><p>27 Ocak'ta sonuç duyurusu</p></div></div>
+          <div class="timeline-item"><div class="timeline-rail"><span></span></div><div class="timeline-date">28 OCA – 12 ŞUB 2027</div><div class="timeline-text"><h3>Jüri değerlendirmesi</h3><p>12 Şubat'ta PoC aşamasına geçen projeler açıklanır</p></div></div>
+          <div class="timeline-item"><div class="timeline-rail"><span></span></div><div class="timeline-date">13 ŞUB – 31 MAR 2027</div><div class="timeline-text"><h3>Bootcamp ve PoC</h3><p>13 Şubat mentorluk; 15 Şubat – 31 Mart PoC uygulaması</p></div></div>
+          <div class="timeline-item"><div class="timeline-rail"><span></span></div><div class="timeline-date">09–10 NİS 2027</div><div class="timeline-text"><h3>Final sunumları</h3><p>Jüri karşısında çözüm sunumları</p></div></div>
+          <div class="timeline-item"><div class="timeline-rail"><span></span></div><div class="timeline-date">27 NİS 2027</div><div class="timeline-text"><h3>Ödül töreni</h3><p>Başakşehir Belediyesi Konferans Salonu</p></div></div>
         </div>
-        <a class="text-link" href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi">Katılım ve ödül koşullarını oku <span class="external-arrow" aria-hidden="true"></span></a>
       </div>
     </section>
-    <section id="sss" class="section about">
-      <div class="wrap faq-grid">
-        <div><p class="eyebrow">Başvuru rehberi</p><h2>Sık sorulan<br>sorular.</h2></div>
-        <div class="faq"><details><summary>Katılım ücretli mi?<span class="plus" aria-hidden="true"></span></summary><p>Yarışmaya katılım ücretsizdir.</p></details>
-<details><summary>Bireysel, ekip veya kurum adına başvurabilir miyim?<span class="plus" aria-hidden="true"></span></summary><p>Evet. Ekip başvurularında bir ekip temsilcisi, kurumsal başvurularda ise yetkilendirilmiş bir temsilci belirlenmelidir.</p></details>
-<details><summary>18 yaşından küçükler katılabilir mi?<span class="plus" aria-hidden="true"></span></summary><p>Evet. Veli veya yasal temsilci onayı gerekir.</p></details>
-<details><summary>Başvuru için nasıl bir proje hazırlamalıyım?<span class="plus" aria-hidden="true"></span></summary><p>En az bir problem alanı seç. Projen, seçtiğin ihtiyaca doğrudan yanıt vermeli ve uygulanabilir bir çözüm önermeli.</p></details>
-<details><summary>Kavram kanıtı (PoC) nedir? Herkes için zorunlu mu?<span class="plus" aria-hidden="true"></span></summary><p>PoC, bir çözümün temel işlevlerinin çalıştığını gösteren test edilebilir bir uygulamadır. Genel Başvuru kategorisi dışındaki kategorilerde ödüle hak kazanabilmek için PoC gerekir.</p></details>
-<details><summary>Takvim değişirse nereden öğrenebilirim?<span class="plus" aria-hidden="true"></span></summary><p>Olası değişiklikler yarışmanın resmî iletişim kanallarında duyurulur. Güncel takvim için yarışma şartnamesine bakabilirsin.</p></details></div>
+
+    <section class="section awards-section" id="oduller" data-x-scene="awards">
+      <div class="container">
+        <div class="section-top reveal">
+          <div><span class="eyebrow">05 / ÖDÜLLER</span><h2 class="section-title">Fikrin değer<br><em>üretsin.</em></h2></div>
+          <p class="section-description">Ödüller, başvurduğun katılımcı kategorisine göre belirlenir. Bir kategoriyi seçerek tutarları incele.</p>
+        </div>
+        <div class="award-module reveal">
+          <div class="category-tabs" id="awardTabs" role="tablist" aria-label="Ödül kategorileri">
+            <button role="tab" type="button" id="cat-gencler" aria-controls="awardPanel" aria-selected="true" tabindex="0" data-category="gencler">Gençler</button>
+            <button role="tab" type="button" id="cat-arastirmacilar" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="arastirmacilar">Araştırmacılar</button>
+            <button role="tab" type="button" id="cat-kurumlar" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="kurumlar">Kurumlar</button>
+            <button role="tab" type="button" id="cat-startuplar" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="startuplar">Startup'lar</button>
+            <button role="tab" type="button" id="cat-genel" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="genel">Genel Başvuru</button>
+          </div>
+          <div class="award-panel" id="awardPanel" role="tabpanel" tabindex="0" aria-labelledby="cat-gencler">
+            <div class="award-card award-first"><span>01 / BİRİNCİLİK</span><strong id="awardFirst">150.000 <small>TL</small></strong></div>
+            <div class="award-card"><span>02 / İKİNCİLİK</span><strong id="awardSecond">100.000 <small>TL</small></strong></div>
+            <div class="award-card"><span>03 / ÜÇÜNCÜLÜK</span><strong id="awardThird">50.000 <small>TL</small></strong></div>
+          </div>
+          <p class="award-footnote">Ödül ve PoC koşullarının tamamı için <a href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi" target="_blank" rel="noopener noreferrer">resmî şartnameyi</a> inceleyin.</p>
+        </div>
       </div>
     </section>
-    <section class="final-cta" aria-labelledby="final-title">
-      <div class="wrap final-inner">
-        <div><h2 id="final-title">Çözümünle başvur.</h2><p>Son başvuru <time datetime="2027-01-15T23:59:00+03:00">15 Ocak 2027 · 23.59</time></p></div>
-        <a class="button" href="https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu">Resmî Başvuru Formu <span class="external-arrow" aria-hidden="true"></span></a>
+
+    <section class="section faq-section" id="sss" data-x-scene="faq">
+      <div class="container section-grid faq-grid">
+        <div class="section-heading-block reveal"><span class="eyebrow">06 / SIK SORULAN SORULAR</span><h2 class="section-title">Merak<br><em>ettiklerin.</em></h2><p class="body-copy">Başvuru öncesinde en sık sorulan soruların kısa cevapları burada.</p></div>
+        <div class="faq-list reveal">
+          <details><summary>Yarışmaya katılım ücretli mi? <span class="faq-plus" aria-hidden="true"></span></summary><p>Hayır. 13×13 İnovasyon Yarışması'na katılım ücretsizdir.</p></details>
+          <details><summary>Kimler başvurabilir? <span class="faq-plus" aria-hidden="true"></span></summary><p>Öğrenciler ve yeni mezunlar, araştırmacılar, kamu ve özel sektör kuruluşları, STK'lar, startup'lar ve bireysel çözüm sahipleri başvurabilir. 18 yaş altı katılımcılar için veli veya yasal temsilci onayı gereklidir.</p></details>
+          <details><summary>Tek başıma veya ekiple başvurabilir miyim? <span class="faq-plus" aria-hidden="true"></span></summary><p>Evet. Başvurular bireysel, ekip veya kurum adına yapılabilir. Ekipler bir temsilci belirlemelidir.</p></details>
+          <details><summary>Hangi probleme yönelik proje sunmalıyım? <span class="faq-plus" aria-hidden="true"></span></summary><p>Yayımlanan 13 problem alanından en az birini seçmeli ve o probleme doğrudan yanıt veren bir çözüm önermelisiniz.</p></details>
+          <details><summary>PoC hazırlamak zorunlu mu? <span class="faq-plus" aria-hidden="true"></span></summary><p>Genel Başvuru kategorisi dışında kalan kategorilerde ödüle hak kazanabilmek için PoC geliştirilmesi zorunludur. Genel Başvuru kategorisinde PoC zorunluluğu yoktur.</p></details>
+          <details><summary>Son başvuru tarihi nedir? <span class="faq-plus" aria-hidden="true"></span></summary><p>Şartnamede belirtilen son başvuru ve proje teslim tarihi 15 Ocak 2027 Cuma, saat 23.59'dur.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-section" id="basvuru" data-x-scene="final">
+      <div class="container final-layout">
+        <div class="final-copy reveal">
+          <span class="eyebrow">ŞİMDİ SIRA SENDE</span>
+          <h2>Geleceğin şehrine<br><em>iz bırak.</em></h2>
+          <p>Bir problem seç, bir çözüm geliştir ve 13×13 İnovasyon Yarışması'nda yerini al.</p>
+          <a class="button button-aqua" href="https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu" target="_blank" rel="noopener noreferrer">Başvuru platformuna git <span aria-hidden="true">↗</span></a>
+          <span class="final-deadline">Son başvuru: 15 Ocak 2027 · 23.59</span>
+        </div>
+        <img src="assets/x-original.png" alt="" class="final-x" aria-hidden="true">
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <a class="brand" href="https://basaksehirlivinglab.com"><img src="./assets/bll-logo.png" width="390" height="127" alt="Başakşehir Living Lab ana sayfası"></a>
-      <div><a href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi">Yarışma şartnamesi</a><a href="https://basaksehirlivinglab.com/iletisim">İletişim</a><a href="#ust">Yukarı dön ↑</a><a href="https://kureansiklopedi.com/tr/detay/basaksehir-millet-bahcesi-5d132">Kent görseli</a></div>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <div class="footer-brand"><a href="#anasayfa">13<span>×</span>13</a><small>Başakşehir Living Lab<br>İnovasyon Yarışması</small></div>
+      <div class="footer-links"><a href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13" target="_blank" rel="noopener noreferrer">Resmî yarışma sayfası ↗</a><a href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi" target="_blank" rel="noopener noreferrer">Şartname ↗</a><a href="https://basaksehirlivinglab.com/13-x-13-problem-konu-basliklari" target="_blank" rel="noopener noreferrer">Problem başlıkları ↗</a></div>
+      <div class="footer-meta"><span>Başakşehir Belediyesi × Başakşehir Living Lab</span><a href="#anasayfa">Yukarı dön ↑</a></div>
     </div>
   </footer>
+
+  <dialog class="problem-dialog" id="problemDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-inner"><div class="dialog-top"><span class="eyebrow" id="dialogNumber">PROBLEM / 01</span><button class="dialog-close" id="dialogClose" aria-label="Pencereyi kapat" type="button">×</button></div><h2 id="dialogTitle"></h2><div class="dialog-divider"></div><span class="dialog-label">PROJE SORUSU</span><p class="dialog-question" id="dialogQuestion"></p><div class="dialog-actions"><a class="button button-dark" href="https://basaksehirlivinglab.com/13-x-13-problem-konu-basliklari" target="_blank" rel="noopener noreferrer">Detayları incele ↗</a><a class="button button-outline" href="https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu" target="_blank" rel="noopener noreferrer">Başvuru yap ↗</a></div></div>
+  </dialog>
 </body>
 </html>
