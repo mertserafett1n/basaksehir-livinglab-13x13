@@ -127,3 +127,18 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 .about-section .about-points>div{font-size:clamp(14px,1.05vw,17px)}
 .about-section .text-link{font-size:clamp(15px,1.05vw,17px)}
 @media(max-width:540px){.about-section .section-lede{font-size:25px}.about-section .body-copy{font-size:17px}.about-section .about-points>div{font-size:13px}}
+
+/* Four concise process steps sit beneath the About headline. */
+.about-section .section-grid{column-gap:clamp(60px,8vw,145px)}
+.about-journey{margin-top:clamp(42px,5vw,72px);max-width:520px}
+.about-journey-line{height:13px;border-bottom:1px solid #cbdde2;position:relative}
+.about-journey-line:before{content:"";position:absolute;left:0;bottom:-1px;width:100px;height:12px;background:linear-gradient(135deg,transparent 45%,var(--teal-dark) 47%,var(--teal-dark) 53%,transparent 55%) 0 0/18px 12px,linear-gradient(45deg,transparent 45%,var(--teal-dark) 47%,var(--teal-dark) 53%,transparent 55%) 9px 0/18px 12px;background-color:#fff}
+.about-journey-intro{margin:24px 0 21px;font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:var(--teal-dark)}
+.about-journey-list{padding:0;margin:0;list-style:none;display:grid}
+.about-journey-list li{display:grid;grid-template-columns:43px 1fr;gap:13px;padding:14px 0;border-top:1px solid var(--line)}
+.about-journey-list li>span{font-size:14px;font-weight:800;color:var(--teal-dark);padding-top:2px}
+.about-journey-list strong{font-size:19px;line-height:1.25;letter-spacing:-.03em}
+.about-journey-list p{margin:5px 0 0;font-size:14px;line-height:1.5;color:var(--ink-soft)}
+.about-download{border-block:1px solid var(--line);margin:43px 0 0;padding:27px 0}
+@media(max-width:800px){.about-journey{margin-top:38px}.about-download{margin-top:34px}}
+@media(max-width:540px){.about-journey-list strong{font-size:17px}.about-journey-list p{font-size:13px}}
