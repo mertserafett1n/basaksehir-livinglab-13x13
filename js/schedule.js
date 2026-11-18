@@ -27,7 +27,6 @@
         svg.append(node);
         return node;
       });
-      const mascot = namespace.createMascot(svg);
       stage.prepend(svg);
       section.classList.add('has-route');
       let points = [];
@@ -95,10 +94,6 @@
           items[index].style.setProperty('--stage-focus', proximity.toFixed(3));
         });
         progressPath.style.strokeDashoffset = totalLength - distance;
-        mascot.render({
-          x: point.x, y: point.y, tangent, movement, distance, travel, dt,
-          sample: value => path.getPointAtLength(clamp(value, 0, totalLength))
-        });
         lastDistance = distance;
       }
 
@@ -132,7 +127,6 @@
         document.removeEventListener('toggle', requestRefresh, true);
         gsap.ticker.remove(render);
         visibility.disconnect();
-        mascot.destroy();
         svg.remove();
         section.classList.remove('has-route');
         items.forEach(item => item.style.removeProperty('--stage-focus'));

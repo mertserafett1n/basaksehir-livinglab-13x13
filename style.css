@@ -110,6 +110,10 @@ nav a:hover, .footer a:hover { color: var(--cyan); }
   white-space: nowrap;
 }
 .hero-x { flex: none; width: .93em; margin-inline-end: -.05em; }
+.hero-greeting { position: absolute; overflow: visible; pointer-events: none; z-index: 1; }
+@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+  .hero-greeting { display: none; }
+}
 .hero-type > span:first-child {
   transform: translateY(-.16em);
 }

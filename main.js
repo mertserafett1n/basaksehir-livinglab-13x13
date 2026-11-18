@@ -25,3 +25,4 @@ document.addEventListener('keydown', (event) => {
 });
 
 window.LivingLab?.initSchedule(document.querySelector('#takvim'));
+window.LivingLab?.initHeroGreeting(document.querySelector('.hero'));
