@@ -128,17 +128,24 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 .about-section .text-link{font-size:clamp(15px,1.05vw,17px)}
 @media(max-width:540px){.about-section .section-lede{font-size:25px}.about-section .body-copy{font-size:17px}.about-section .about-points>div{font-size:13px}}
 
-/* Four concise process steps sit beneath the About headline. */
-.about-section .section-grid{column-gap:clamp(60px,8vw,145px)}
-.about-journey{margin-top:clamp(42px,5vw,72px);max-width:520px}
-.about-journey-line{height:13px;border-bottom:1px solid #cbdde2;position:relative}
-.about-journey-line:before{content:"";position:absolute;left:0;bottom:-1px;width:100px;height:12px;background:linear-gradient(135deg,transparent 45%,var(--teal-dark) 47%,var(--teal-dark) 53%,transparent 55%) 0 0/18px 12px,linear-gradient(45deg,transparent 45%,var(--teal-dark) 47%,var(--teal-dark) 53%,transparent 55%) 9px 0/18px 12px;background-color:#fff}
-.about-journey-intro{margin:24px 0 21px;font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:var(--teal-dark)}
-.about-journey-list{padding:0;margin:0;list-style:none;display:grid}
-.about-journey-list li{display:grid;grid-template-columns:43px 1fr;gap:13px;padding:14px 0;border-top:1px solid var(--line)}
-.about-journey-list li>span{font-size:14px;font-weight:800;color:var(--teal-dark);padding-top:2px}
-.about-journey-list strong{font-size:19px;line-height:1.25;letter-spacing:-.03em}
-.about-journey-list p{margin:5px 0 0;font-size:14px;line-height:1.5;color:var(--ink-soft)}
-.about-download{border-block:1px solid var(--line);margin:43px 0 0;padding:27px 0}
-@media(max-width:800px){.about-journey{margin-top:38px}.about-download{margin-top:34px}}
-@media(max-width:540px){.about-journey-list strong{font-size:17px}.about-journey-list p{font-size:13px}}
+
+/* About: a single continuous ribbon from the sketch, with text inside its turns. */
+.about-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(65px,9vw,150px);align-items:start}
+.about-layout .section-heading-block{max-width:none}
+.about-layout .about-right{max-width:650px}
+.about-path{grid-column:1/-1;margin-top:clamp(30px,4vw,65px);overflow:visible}
+.about-path-art{display:block;width:100%;height:auto;overflow:visible}
+.about-path-edge{fill:none;stroke:#008f9c;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.about-path-label{font:700 22px Inter,"Helvetica Neue",Arial,sans-serif;fill:#0b223a;letter-spacing:-.02em}
+.about-path-mobile{display:none}
+.about-layout .about-download{grid-column:2;border-block:1px solid var(--line);margin:15px 0 0;padding:27px 0}
+@media(max-width:800px){
+  .about-layout{grid-template-columns:1fr;gap:32px}
+  .about-layout .about-right,.about-layout .about-download{grid-column:1}
+  .about-path{grid-column:1;margin-top:0}
+  .about-path-art{display:none}
+  .about-path-mobile{display:grid;list-style:none;gap:0;margin:0;padding:0;border-top:1px solid var(--line)}
+  .about-path-mobile li{display:flex;gap:19px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line);font-size:18px;font-weight:700}
+  .about-path-mobile span{color:var(--teal-dark);font-size:13px}
+  .about-layout .about-download{margin:0}
+}
