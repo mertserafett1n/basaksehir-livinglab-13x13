@@ -132,16 +132,28 @@
         </div>
         <div class="award-module reveal">
           <div class="category-tabs" id="awardTabs" role="tablist" aria-label="Ödül kategorileri">
-            <button role="tab" type="button" id="cat-gencler" aria-controls="awardPanel" aria-selected="true" tabindex="0" data-category="gencler">Gençler</button>
+            <button role="tab" type="button" id="cat-gencler" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="gencler">Gençler</button>
             <button role="tab" type="button" id="cat-arastirmacilar" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="arastirmacilar">Araştırmacılar</button>
-            <button role="tab" type="button" id="cat-kurumlar" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="kurumlar">Kurumlar</button>
+            <button role="tab" type="button" id="cat-kurumlar" aria-controls="awardPanel" aria-selected="true" tabindex="0" data-category="kurumlar">Kurumlar</button>
             <button role="tab" type="button" id="cat-startuplar" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="startuplar">Startup'lar</button>
             <button role="tab" type="button" id="cat-genel" aria-controls="awardPanel" aria-selected="false" tabindex="-1" data-category="genel">Genel Başvuru</button>
           </div>
-          <div class="award-panel" id="awardPanel" role="tabpanel" tabindex="0" aria-labelledby="cat-gencler">
-            <div class="award-card award-first"><span>01 / BİRİNCİLİK</span><strong id="awardFirst">150.000 <small>TL</small></strong></div>
-            <div class="award-card"><span>02 / İKİNCİLİK</span><strong id="awardSecond">100.000 <small>TL</small></strong></div>
-            <div class="award-card"><span>03 / ÜÇÜNCÜLÜK</span><strong id="awardThird">50.000 <small>TL</small></strong></div>
+          <div class="award-panel" id="awardPanel" role="tabpanel" tabindex="0" aria-labelledby="cat-kurumlar">
+            <div class="award-step award-second" data-rank="1" style="--bar-height:295px">
+              <div class="award-step-head"><span>02 / İKİNCİLİK</span><span class="award-medal" aria-hidden="true"></span></div>
+              <strong class="award-amount" id="awardSecond">140.000 <small>TL</small></strong>
+              <span class="award-rank" aria-hidden="true">2</span>
+            </div>
+            <div class="award-step award-first" data-rank="0" style="--bar-height:420px">
+              <div class="award-step-head"><span>01 / BİRİNCİLİK</span><span class="award-medal" aria-hidden="true"></span></div>
+              <strong class="award-amount" id="awardFirst">270.000 <small>TL</small></strong>
+              <span class="award-rank" aria-hidden="true">1</span>
+            </div>
+            <div class="award-step award-third" data-rank="2" style="--bar-height:247px">
+              <div class="award-step-head"><span>03 / ÜÇÜNCÜLÜK</span><span class="award-medal" aria-hidden="true"></span></div>
+              <strong class="award-amount" id="awardThird">90.000 <small>TL</small></strong>
+              <span class="award-rank" aria-hidden="true">3</span>
+            </div>
           </div>
           <p class="award-footnote">Ödül ve PoC koşullarının tamamı için <a href="https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-yarismasi-13x13-sartnamesi" target="_blank" rel="noopener noreferrer">resmî şartnameyi</a> inceleyin.</p>
         </div>
