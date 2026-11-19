@@ -94,7 +94,7 @@ function renderProblems(){
 }
 function openProblem(problem,trigger){
   dialogTrigger=trigger;
-  $('#dialogNumber').textContent=`${isEnglish?'CHALLENGE':'PROBLEM'} / ${String(problem.number).padStart(2,'0')}`;
+  $('#dialogNumber').textContent=`${isEnglish?'CHALLENGE':'PROBLEM'} / ${problem.number}`;
   $('#dialogTitle').textContent=problem.title;
   $('#dialogQuestion').textContent=problem.question;
   if(typeof modal.showModal==='function'){
