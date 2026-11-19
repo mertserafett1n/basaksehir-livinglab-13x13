@@ -73,7 +73,6 @@ const modal=$('#problemDialog');
 let dialogTrigger=null;
 function renderProblems(){
   const term=normalize(problemSearch.value.trim());
-  grid.classList.toggle('is-filtered',Boolean(term));
   const source=term?PROBLEMS.filter(p=>normalize(`${p.title} ${p.question}`).includes(term)):PROBLEMS;
   grid.innerHTML='';
   if(!source.length){
@@ -95,7 +94,7 @@ function renderProblems(){
 }
 function openProblem(problem,trigger){
   dialogTrigger=trigger;
-  $('#dialogNumber').textContent=`${isEnglish?'CHALLENGE':'PROBLEM'} / ${problem.number}`;
+  $('#dialogNumber').textContent=`${isEnglish?'CHALLENGE':'PROBLEM'} / ${String(problem.number).padStart(2,'0')}`;
   $('#dialogTitle').textContent=problem.title;
   $('#dialogQuestion').textContent=problem.question;
   if(typeof modal.showModal==='function'){
