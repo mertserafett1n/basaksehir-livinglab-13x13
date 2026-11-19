@@ -73,6 +73,7 @@ const modal=$('#problemDialog');
 let dialogTrigger=null;
 function renderProblems(){
   const term=normalize(problemSearch.value.trim());
+  grid.classList.toggle('is-filtered',Boolean(term));
   const source=term?PROBLEMS.filter(p=>normalize(`${p.title} ${p.question}`).includes(term)):PROBLEMS;
   grid.innerHTML='';
   if(!source.length){
