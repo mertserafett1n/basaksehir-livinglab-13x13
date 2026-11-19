@@ -103,7 +103,7 @@ let dialogTrigger=null;
 function renderProblems(){
   const term=normalize(problemSearch.value.trim());
   const source=term?PROBLEMS.filter(p=>normalize(`${p.title} ${p.question}`).includes(term)):PROBLEMS;
-  grid.classList.toggle('route-layout',!term);
+  grid.classList.toggle('route-layout',!term && !window.matchMedia('(max-width: 800px)').matches);
   grid.innerHTML='';
   if(!source.length){
     const empty=document.createElement('p');empty.className='empty-results';empty.textContent=UI.noResults;grid.appendChild(empty);
@@ -135,6 +135,7 @@ function openProblem(problem,trigger){
   }
 }
 problemSearch.addEventListener('input',renderProblems);
+window.matchMedia('(max-width: 800px)').addEventListener('change',renderProblems);
 $('#dialogClose').addEventListener('click',()=>modal.close());
 modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});
 modal.addEventListener('close',()=>{document.body.classList.remove('dialog-open');dialogTrigger?.focus();});
