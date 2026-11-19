@@ -183,16 +183,20 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 .about-flow-step p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0;max-width:250px}
 @media(prefers-reduced-motion:reduce){.about-flow-track:before,.about-flow-track:after{animation:none}}
 
-/* Compact four-column presentation, with every problem visible at once. */
+/* The complete set follows the 4-5-4 route; filtered results use a regular grid. */
 .problem-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.problem-grid.route-layout{grid-template-columns:repeat(20,minmax(0,1fr))}
+.route-layout .problem-card:nth-child(-n+4),.route-layout .problem-card:nth-child(n+10){grid-column:span 5}
+.route-layout .problem-card:nth-child(n+5):nth-child(-n+9){grid-column:span 4;padding-inline:17px}
 .problem-card{min-height:172px;padding:20px 21px;border-radius:15px}
 .problem-number{font-size:32px;letter-spacing:-2px}
 .problem-card h3{font-size:17px;line-height:1.2;margin:14px 0 11px}
+.route-layout .problem-card:nth-child(n+5):nth-child(-n+9) h3{font-size:16px}
 .problem-bottom{font-size:10px}
 .card-arrow{width:28px;height:28px;font-size:16px}
-@media(max-width:1100px){.problem-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:800px){.problem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:540px){.problem-grid{grid-template-columns:1fr}}
+@media(max-width:1100px){.problem-grid,.problem-grid.route-layout{grid-template-columns:repeat(3,minmax(0,1fr))}.route-layout .problem-card:nth-child(n){grid-column:auto;padding-inline:21px}.route-layout .problem-card:nth-child(n) h3{font-size:17px}}
+@media(max-width:800px){.problem-grid,.problem-grid.route-layout{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.problem-grid,.problem-grid.route-layout{grid-template-columns:1fr}.route-layout .problem-card:nth-child(n){padding-inline:23px}.route-layout .problem-card:nth-child(n) h3{font-size:22px}}
 
 @media(max-width:900px){
   .timeline-feature{grid-template-columns:1fr 1fr;gap:20px}

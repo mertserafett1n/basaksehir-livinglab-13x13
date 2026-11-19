@@ -103,6 +103,7 @@ let dialogTrigger=null;
 function renderProblems(){
   const term=normalize(problemSearch.value.trim());
   const source=term?PROBLEMS.filter(p=>normalize(`${p.title} ${p.question}`).includes(term)):PROBLEMS;
+  grid.classList.toggle('route-layout',!term);
   grid.innerHTML='';
   if(!source.length){
     const empty=document.createElement('p');empty.className='empty-results';empty.textContent=UI.noResults;grid.appendChild(empty);
