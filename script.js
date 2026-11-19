@@ -65,6 +65,35 @@ const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const numberFormat=new Intl.NumberFormat(isEnglish?'en-US':'tr-TR');
 const normalize=s=>s.toLocaleLowerCase(isEnglish?'en':'tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 
+// Download the FAQ and footer PDFs as files instead of opening the PDF viewer.
+$$('.faq-downloads a[download],.footer-links a[download]').forEach(link=>{
+  link.addEventListener('click',async event=>{
+    event.preventDefault();
+    try{
+      const response=await fetch(link.href);
+      if(!response.ok)throw new Error('PDF unavailable');
+      const objectURL=URL.createObjectURL(await response.blob());
+      const download=document.createElement('a');
+      download.href=objectURL;
+      download.download=link.download;
+      download.hidden=true;
+      document.body.appendChild(download);
+      download.click();
+      download.remove();
+      setTimeout(()=>URL.revokeObjectURL(objectURL),60000);
+    }catch{
+      // The native download link also works when fetch is unavailable (e.g. file://).
+      const fallback=document.createElement('a');
+      fallback.href=link.href;
+      fallback.download=link.download;
+      fallback.hidden=true;
+      document.body.appendChild(fallback);
+      fallback.click();
+      fallback.remove();
+    }
+  });
+});
+
 // Problem discovery, search and an accessible native dialog.
 const grid=$('#problemGrid');
 const problemSearch=$('#problemSearch');
