@@ -239,3 +239,64 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 @media(max-width:1100px){.brand-logo{width:135px}.header-inner{gap:16px}.main-nav{gap:11px}}
 @media(max-width:800px){.brand-logo{width:129px}.main-nav .lang-switch{align-self:flex-start;margin-top:13px}.footer-layout{gap:26px}}
 @media(max-width:540px){.brand-logo{width:120px}.footer-layout{grid-template-columns:1fr;gap:27px}.footer-logos{gap:17px;padding:24px 0 30px}.footer-municipality-logo{height:62px}.footer-logo-divider{height:46px}.footer-lab-logo{min-height:62px;padding:10px 12px}.footer-lab-logo img{width:115px}}
+
+/* Mobile reading layout. Desktop sections and the 4-5-4 card route stay intact. */
+@media(max-width:800px){
+  .main-nav.is-open{max-height:calc(100dvh - 73px);overflow-y:auto;overscroll-behavior:contain}
+  .main-nav>a:not(.button){min-height:44px;display:flex;align-items:center}
+  .about-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+  .about-flow{grid-column:auto;margin-top:22px}
+  .about-flow-heading{flex-wrap:wrap;gap:8px}
+  .about-flow-track{grid-template-columns:1fr;border:1px solid #cbdde2;border-radius:16px;overflow:hidden;background:#f4fafb}
+  .about-flow-track::before,.about-flow-track::after,.about-flow-step+li::before{display:none}
+  .about-flow-step{min-height:0;padding:18px 19px 18px 56px}
+  .about-flow-step+li{border-left:0;border-top:1px solid #cbdde2}
+  .about-flow-number{position:absolute;left:17px;top:22px;margin:0;font-size:13px}
+  .about-flow-step h3{font-size:19px;margin-bottom:6px}
+  .about-flow-step p{font-size:15px;line-height:1.5;max-width:none}
+  .timeline-route{grid-template-columns:1fr;gap:0;border-top:0;margin-top:30px}
+  .timeline-stop{min-height:0;padding:18px 0 20px 24px;border-top:1px solid #cbdde2}
+  .timeline-stop::before{width:11px;height:11px;top:22px;left:0;border-width:2px}
+  .timeline-stop-date{min-height:0}
+  .timeline-stop h3{margin:8px 0 6px}
+  .timeline-stop p{font-size:14px;max-width:none}
+  .timeline-feature{grid-template-columns:1fr;gap:17px;padding:27px}
+  .timeline-feature-tag{grid-column:auto;width:max-content;max-width:100%;white-space:normal}
+  .category-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible}
+  .category-tabs button{min-height:44px;padding:10px;white-space:normal;font-size:13px}
+  .category-tabs button:last-child{grid-column:1/-1}
+  .award-panel{grid-template-columns:1fr;min-height:0;gap:10px;padding:0;border:0}
+  .award-step{height:auto;min-height:115px;gap:12px;padding:17px 20px;border:1px solid transparent;border-radius:14px;transition:none}
+  .award-first{order:0}.award-second{order:1}.award-third{order:2}
+  .award-step-head{font-size:12px;letter-spacing:.07em}
+  .award-panel .award-amount{font-size:clamp(28px,5vw,36px)}
+  .award-panel .award-amount small{font-size:13px}
+  .award-rank{font-size:78px;right:18px;bottom:12px;opacity:.4}
+  .faq-list summary{min-height:58px;font-size:16px}
+  .faq-list details p{font-size:15px}
+  .faq-downloads a{min-height:44px;font-size:13px}
+  .footer-links a,.footer-meta a{font-size:14px;min-height:30px}
+}
+@media(max-width:600px){
+  .problem-grid,.problem-grid.route-layout{grid-template-columns:1fr;gap:10px}
+  .problem-card,.route-layout .problem-card:nth-child(n){min-height:158px;padding:18px 20px}
+  .problem-card h3,.route-layout .problem-card:nth-child(n) h3{font-size:19px;margin:10px 0}
+  .problem-toolbar{flex-direction:column;align-items:stretch}
+  .search-field{width:100%}
+  .result-count{align-self:flex-end}
+  .final-copy .button{width:100%;gap:10px;padding-inline:14px;text-align:center;white-space:normal}
+  .problem-dialog h2{font-size:clamp(27px,8vw,37px);overflow-wrap:anywhere}
+  .dialog-actions .button{min-height:48px;white-space:normal;text-align:center}
+}
+@media(max-width:540px){
+  .section-title{font-size:clamp(38px,10vw,52px)}
+  .award-module{padding:13px}
+  .award-panel{grid-template-columns:1fr;min-height:0;gap:10px}
+  .award-step{min-height:115px;padding:17px 20px}
+  .award-step-head{font-size:12px}
+  .award-rank{right:18px;bottom:12px;font-size:78px}
+  .footer-logos{flex-direction:column;gap:14px}
+  .footer-logo-divider{width:80px;height:1px}
+  .footer-municipality-logo{height:70px}
+  .footer-lab-logo img{width:145px}
+}
