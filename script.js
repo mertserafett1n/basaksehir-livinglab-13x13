@@ -144,8 +144,8 @@ awardButtons.forEach((b,index)=>{
 const menuBtn=$('#menuToggle');const nav=$('#mainNav');
 function closeNav(){menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label',UI.menuOpen);nav.classList.remove('is-open');}
 menuBtn.addEventListener('click',()=>{const open=menuBtn.getAttribute('aria-expanded')!=='true';menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?UI.menuClose:UI.menuOpen);nav.classList.toggle('is-open',open);});
-$('#mainNav a').forEach(a=>a.addEventListener('click',closeNav));
-$('.lang-switch a').forEach(a=>a.addEventListener('click',()=>{a.href=a.getAttribute('href').split('#')[0]+window.location.hash;}));
+$$('#mainNav a').forEach(a=>a.addEventListener('click',closeNav));
+$$('.lang-switch a').forEach(a=>a.addEventListener('click',()=>{a.href=a.getAttribute('href').split('#')[0]+window.location.hash;}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav();});
 document.addEventListener('click',e=>{if(!nav.contains(e.target)&&!menuBtn.contains(e.target))closeNav();});
 
