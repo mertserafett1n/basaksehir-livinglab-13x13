@@ -130,7 +130,7 @@ function openProblem(problem,trigger){
     modal.showModal();document.body.classList.add('dialog-open');
   }else{
     // Graceful fallback for older browsers.
-    window.open('assets/13x13-problem-alanlari.pdf','_blank','noopener,noreferrer');
+    window.open(isEnglish?'assets/13x13-challenge-topics-en.pdf':'assets/13x13-problem-alanlari.pdf','_blank','noopener,noreferrer');
   }
 }
 problemSearch.addEventListener('input',renderProblems);
