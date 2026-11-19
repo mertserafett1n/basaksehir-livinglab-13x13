@@ -85,8 +85,11 @@ function setAward(category){
   const current=awardButtons.find(b=>b.dataset.category===category);
   awardButtons.forEach(b=>{const selected=b===current;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});
   awardSteps.forEach(step=>{
-    const amount=amounts[Number(step.dataset.rank)];
-    step.style.setProperty('--bar-height',`${160+Math.round(amount/maxAward*260)}px`);
+    const rank=Number(step.dataset.rank);
+    const amount=amounts[rank];
+    const institutionHeight=160+Math.round(AWARDS.kurumlar[rank]/maxAward*260);
+    const previousHeight=160+Math.round(amount/maxAward*260);
+    step.style.setProperty('--bar-height',`${Math.round((institutionHeight+previousHeight)/2)}px`);
     step.querySelector('.award-amount').innerHTML=`${numberTR.format(amount)} <small>TL</small>`;
   });
   $('#awardPanel').setAttribute('aria-labelledby',current.id);
