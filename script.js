@@ -78,13 +78,17 @@ renderProblems();
 
 // Prize-category tabs: the published 2026/2027 şartname figures.
 const awardButtons=$$('#awardTabs [role="tab"]');
+const awardSteps=$$('#awardPanel .award-step');
+const maxAward=Math.max(...Object.values(AWARDS).flat());
 function setAward(category){
   const amounts=AWARDS[category];if(!amounts)return;
   const current=awardButtons.find(b=>b.dataset.category===category);
   awardButtons.forEach(b=>{const selected=b===current;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;});
-  $('#awardFirst').innerHTML=`${numberTR.format(amounts[0])} <small>TL</small>`;
-  $('#awardSecond').innerHTML=`${numberTR.format(amounts[1])} <small>TL</small>`;
-  $('#awardThird').innerHTML=`${numberTR.format(amounts[2])} <small>TL</small>`;
+  awardSteps.forEach(step=>{
+    const amount=amounts[Number(step.dataset.rank)];
+    step.style.setProperty('--bar-height',`${160+Math.round(amount/maxAward*260)}px`);
+    step.querySelector('.award-amount').innerHTML=`${numberTR.format(amount)} <small>TL</small>`;
+  });
   $('#awardPanel').setAttribute('aria-labelledby',current.id);
 }
 awardButtons.forEach((b,index)=>{
