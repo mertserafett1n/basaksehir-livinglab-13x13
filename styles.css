@@ -47,10 +47,10 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 .timeline-feature{display:grid;grid-template-columns:1fr 1.4fr auto;align-items:center;gap:36px;position:relative;overflow:hidden;padding:36px 43px;border-radius:22px;background:var(--ink);color:#fff}
 .timeline-feature::after{content:"13";position:absolute;right:5%;top:-87px;font-size:280px;line-height:1;font-style:italic;font-weight:900;letter-spacing:-.15em;color:#ffffff08;pointer-events:none}
 .timeline-feature-date{font-size:30px;font-weight:780;letter-spacing:-.05em;white-space:nowrap;position:relative;z-index:1}
-.timeline-feature-date small{display:block;margin-top:7px;color:#81e8e4;font-size:13px;font-weight:800;letter-spacing:.15em}
+.timeline-feature-date small{display:block;margin-top:7px;color:#81e8e4;font-size:14px;font-weight:800;letter-spacing:.15em}
 .timeline-feature-copy{position:relative;z-index:1}
 .timeline-feature-copy h3{font-size:26px;letter-spacing:-.045em;margin:0 0 8px}
-.timeline-feature-copy p{font-size:14px;line-height:1.5;color:#c3d7de;margin:0}
+.timeline-feature-copy p{font-size:16px;line-height:1.5;color:#c3d7de;margin:0}
 .timeline-feature-tag{position:relative;z-index:1;color:#8eede7;border:1px solid #52c8ca73;border-radius:100px;padding:11px 15px;white-space:nowrap;font-size:11px;font-weight:800;letter-spacing:.08em}
 .timeline-route{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));list-style:none;gap:0;margin:62px 0 0;padding:0;border-top:2px solid #cbdde2}
 .timeline-stop{position:relative;padding:35px 20px 20px 3px;min-height:195px}
@@ -181,7 +181,6 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 .about-flow-number{display:block;font-size:13px;font-weight:800;color:var(--teal-dark);letter-spacing:.1em;margin-bottom:28px}
 .about-flow-step h3{font-size:clamp(20px,1.8vw,27px);line-height:1.15;letter-spacing:-.04em;margin:0 0 12px;font-weight:740}
 .about-flow-step p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin:0;max-width:250px}
-.about-layout .about-download{grid-column:2;border-block:1px solid var(--line);margin:54px 0 0;padding:27px 0}
 @media(prefers-reduced-motion:reduce){.about-flow-track:before,.about-flow-track:after{animation:none}}
 
 /* Compact four-column presentation, with every problem visible at once. */
@@ -191,7 +190,6 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 .problem-card h3{font-size:17px;line-height:1.2;margin:14px 0 11px}
 .problem-bottom{font-size:10px}
 .card-arrow{width:28px;height:28px;font-size:16px}
-.about-layout .about-download{border:0;padding:0;margin:54px 0 0}
 @media(max-width:1100px){.problem-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:800px){.problem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){.problem-grid{grid-template-columns:1fr}}
@@ -217,3 +215,23 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 @media(max-width:800px){.award-panel{gap:7px}.award-step{padding:20px 14px}.award-step-head{font-size:9px}.award-medal{display:none}.award-amount{font-size:clamp(25px,4vw,42px)}}
 @media(max-width:540px){.award-module{padding:13px}.award-panel{grid-template-columns:repeat(3,minmax(0,1fr));min-height:420px;padding:0;gap:7px}.award-step{padding:18px 8px}.award-step-head{font-size:8px}.award-amount{font-size:19px}.award-amount small{font-size:9px}.award-rank{font-size:75px;right:8px}}
 @media(prefers-reduced-motion:reduce){.award-step{transition:none}}
+
+/* Brand, document links, and partner marks. */
+.brand-logo{display:block;width:158px;height:auto}
+.lang-switch{display:flex;align-items:center;padding:3px;border:1px solid #cbdbe1;border-radius:100px;background:#fff;flex-shrink:0}
+.lang-switch a{min-width:32px;padding:6px 7px;text-align:center;border-radius:100px;color:#537080;text-decoration:none;font-size:11px;font-weight:800;line-height:1.2}
+.lang-switch a:hover{color:var(--teal-dark)}
+.lang-switch a[aria-current="page"]{color:#fff;background:var(--ink-deep)}
+.faq-downloads{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:21px}
+.faq-downloads a{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;max-width:100%;font-size:12px;line-height:1.4;font-weight:700;text-decoration:none;color:#285365;background:#fff;border:1px solid #d7e5e8;border-radius:9px;padding:10px 12px;transition:border-color .2s,color .2s,transform .2s}
+.faq-downloads a span{color:var(--teal-dark);font-size:15px;line-height:1}
+.faq-downloads a:hover{color:var(--teal-dark);border-color:#70c6c8;transform:translateY(-2px)}
+.footer-email-placeholder{color:#d5e2e7;font-size:13px;font-weight:650}
+.footer-logos{display:flex;align-items:center;justify-content:center;gap:32px;border-top:1px solid #304653;padding:29px 0 38px}
+.footer-municipality-logo{display:block;width:auto;height:78px;object-fit:contain}
+.footer-logo-divider{display:block;width:1px;height:58px;background:#385264}
+.footer-lab-logo{display:flex;align-items:center;justify-content:center;min-height:76px;padding:12px 19px;background:#fff;border-radius:10px}
+.footer-lab-logo img{display:block;width:155px;height:auto}
+@media(max-width:1100px){.brand-logo{width:135px}.header-inner{gap:16px}.main-nav{gap:11px}}
+@media(max-width:800px){.brand-logo{width:129px}.main-nav .lang-switch{align-self:flex-start;margin-top:13px}.footer-layout{gap:26px}}
+@media(max-width:540px){.brand-logo{width:120px}.footer-layout{grid-template-columns:1fr;gap:27px}.footer-logos{gap:17px;padding:24px 0 30px}.footer-municipality-logo{height:62px}.footer-logo-divider{height:46px}.footer-lab-logo{min-height:62px;padding:10px 12px}.footer-lab-logo img{width:115px}}

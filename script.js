@@ -3,7 +3,7 @@ document.documentElement.classList.add('js');
 
 // Titles and project questions are based on the official 13 problem subjects page.
 // https://basaksehirlivinglab.com/13-x-13-problem-konu-basliklari
-const PROBLEMS = [
+const PROBLEMS_TR = [
   {number:1, title:'Afetlere Dayanıklı Kentler ve Acil Durum Yönetimi', question:'Afet öncesi hazırlığı güçlendiren, afet sırasında hızlı ve koordineli müdahale sağlayan, afet sonrasındaki iyileşme sürecini kolaylaştıran nasıl bir çözüm geliştirilebilir?'},
   {number:2, title:'Akıllı Ulaşım, Erişilebilirlik ve Kent Düzeni', question:'Ulaşım sürelerini azaltan, güvenliği artıran ve herkes için erişilebilir, düzenli ve sürdürülebilir kent içi hareketlilik nasıl sağlanabilir?'},
   {number:3, title:'İklim Değişikliğine Uyum ve Çevresel Sürdürülebilirlik', question:'İklim değişikliğinin çevresel, ekonomik ve toplumsal etkilerini azaltacak, doğayı koruyacak ve yaşam alanlarını daha dayanıklı hâle getirecek nasıl bir çözüm geliştirilebilir?'},
@@ -18,6 +18,40 @@ const PROBLEMS = [
   {number:12, title:'Dijital Dönüşüm, Yapay Zekâ ve Siber Güvenlik', question:'Yapay zekâ ve dijital teknolojiler kullanılarak hizmetleri daha hızlı, güvenli, erişilebilir ve verimli hâle getirecek nasıl bir çözüm geliştirilebilir?'},
   {number:13, title:'Finansal Teknolojiler ve Yenilikçi Ekonomi', question:'Finansal işlemleri daha güvenli, erişilebilir ve verimli hâle getiren; bireylerin ve işletmelerin ekonomik kararlarını iyileştiren nasıl bir çözüm geliştirilebilir?'}
 ];
+const PROBLEMS_EN = [
+  {number:1, title:'Disaster-Resilient Cities and Emergency Management', question:'What solution could strengthen preparedness before disasters, enable a rapid and coordinated response during them, and support recovery afterward?'},
+  {number:2, title:'Smart Mobility, Accessibility and Urban Order', question:'How can we reduce travel times, improve safety, and create accessible, orderly and sustainable urban mobility for everyone?'},
+  {number:3, title:'Climate Adaptation and Environmental Sustainability', question:'What solution could reduce the environmental, economic and social impacts of climate change, protect nature and make living spaces more resilient?'},
+  {number:4, title:'Future Experiences in Culture, Art and Tourism', question:'How can an innovative solution strengthen local identity by showcasing cultural heritage and artistic production while providing accessible and sustainable experiences?'},
+  {number:5, title:'Recycling and Waste Management', question:'What system could reduce waste generation, make separation easier and turn waste into a reusable resource?'},
+  {number:6, title:'Sustainable Food Systems and Smart Agriculture', question:'What solution could make the journey of food from production to the consumer safer, more efficient, traceable and sustainable?'},
+  {number:7, title:'Health, Sports and Well-Being', question:'What solution could support physical, mental and social well-being and strengthen healthy living habits?'},
+  {number:8, title:'Water Management, Energy Efficiency and Renewable Energy', question:'What solution could reduce water and energy use, detect losses early and expand the use of renewable energy?'},
+  {number:9, title:'Education, Youth, Skills and Employment', question:'What solution could help young people discover their strengths, gain relevant skills and move from education into employment?'},
+  {number:10, title:'Science, Advanced Technologies and Space Applications', question:'How can scientific knowledge and advanced technologies deliver an innovative, practical solution to a social, environmental or industrial challenge?'},
+  {number:11, title:'Social Innovation and Community Life', question:'What social solution could strengthen solidarity, reduce unequal opportunities and create inclusive places to live?'},
+  {number:12, title:'Digital Transformation, Artificial Intelligence and Cybersecurity', question:'What solution could use AI and digital technologies to make services faster, safer, more accessible and more efficient?'},
+  {number:13, title:'Financial Technologies and the Innovative Economy', question:'What solution could make financial transactions safer, more accessible and more efficient while improving economic decisions for individuals and businesses?'}
+];
+const isEnglish=document.documentElement.lang==='en';
+const PROBLEMS=isEnglish?PROBLEMS_EN:PROBLEMS_TR;
+const UI=isEnglish?{
+  noResults:'No challenge areas match your search.',
+  details:'view details',
+  questionTag:'VIEW PROJECT QUESTION',
+  results:'results',
+  areas:'areas',
+  menuOpen:'Open menu',
+  menuClose:'Close menu'
+}:{
+  noResults:'Aradığınız ifadeye uygun problem alanı bulunamadı.',
+  details:'detayları aç',
+  questionTag:'PROJE SORUSUNU GÖR',
+  results:'sonuç',
+  areas:'alan',
+  menuOpen:'Menüyü aç',
+  menuClose:'Menüyü kapat'
+};
 const OFFICIAL_APPLY = 'https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu';
 const AWARDS={
   gencler:[150000,100000,50000],
@@ -28,8 +62,8 @@ const AWARDS={
 };
 const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
-const numberTR=new Intl.NumberFormat('tr-TR');
-const normalize=s=>s.toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const numberFormat=new Intl.NumberFormat(isEnglish?'en-US':'tr-TR');
+const normalize=s=>s.toLocaleLowerCase(isEnglish?'en':'tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 
 // Problem discovery, search and an accessible native dialog.
 const grid=$('#problemGrid');
@@ -42,32 +76,32 @@ function renderProblems(){
   const source=term?PROBLEMS.filter(p=>normalize(`${p.title} ${p.question}`).includes(term)):PROBLEMS;
   grid.innerHTML='';
   if(!source.length){
-    const empty=document.createElement('p');empty.className='empty-results';empty.textContent='Aradığınız ifadeye uygun problem alanı bulunamadı.';grid.appendChild(empty);
+    const empty=document.createElement('p');empty.className='empty-results';empty.textContent=UI.noResults;grid.appendChild(empty);
   }
   for(const p of source){
     const btn=document.createElement('button');
     btn.type='button';btn.className='problem-card';btn.dataset.number=String(p.number);
-    btn.setAttribute('aria-label',`${p.number}. problem: ${p.title} — detayları aç`);
+    btn.setAttribute('aria-label',`${p.number}. ${isEnglish?'challenge':'problem'}: ${p.title} — ${UI.details}`);
     const num=document.createElement('span');num.className='problem-number';num.textContent=String(p.number);
     const title=document.createElement('h3');title.textContent=p.title;
     const bottom=document.createElement('span');bottom.className='problem-bottom';
-    const tag=document.createElement('span');tag.textContent='PROJE SORUSUNU GÖR';
+    const tag=document.createElement('span');tag.textContent=UI.questionTag;
     const arrow=document.createElement('span');arrow.className='card-arrow';arrow.textContent='↗';arrow.setAttribute('aria-hidden','true');
     bottom.append(tag,arrow);btn.append(num,title,bottom);
     btn.addEventListener('click',()=>openProblem(p,btn));grid.appendChild(btn);
   }
-  resultCount.textContent=term?`${source.length} sonuç`:`${PROBLEMS.length} alan`;
+  resultCount.textContent=term?`${source.length} ${UI.results}`:`${PROBLEMS.length} ${UI.areas}`;
 }
 function openProblem(problem,trigger){
   dialogTrigger=trigger;
-  $('#dialogNumber').textContent=`PROBLEM / ${String(problem.number)}`;
+  $('#dialogNumber').textContent=`${isEnglish?'CHALLENGE':'PROBLEM'} / ${String(problem.number).padStart(2,'0')}`;
   $('#dialogTitle').textContent=problem.title;
   $('#dialogQuestion').textContent=problem.question;
   if(typeof modal.showModal==='function'){
     modal.showModal();document.body.classList.add('dialog-open');
   }else{
     // Graceful fallback for older browsers.
-    window.open('https://basaksehirlivinglab.com/13-x-13-problem-konu-basliklari','_blank','noopener,noreferrer');
+    window.open('assets/13x13-problem-alanlari.pdf','_blank','noopener,noreferrer');
   }
 }
 problemSearch.addEventListener('input',renderProblems);
@@ -76,7 +110,7 @@ modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});
 modal.addEventListener('close',()=>{document.body.classList.remove('dialog-open');dialogTrigger?.focus();});
 renderProblems();
 
-// Prize-category tabs: the published 2026/2027 şartname figures.
+// Prize-category tabs: published 2026/2027 competition rules.
 const awardButtons=$$('#awardTabs [role="tab"]');
 const awardSteps=$$('#awardPanel .award-step');
 const maxAward=Math.max(...Object.values(AWARDS).flat());
@@ -90,10 +124,11 @@ function setAward(category){
     const institutionHeight=160+Math.round(AWARDS.kurumlar[rank]/maxAward*260);
     const previousHeight=160+Math.round(amount/maxAward*260);
     step.style.setProperty('--bar-height',`${Math.round((institutionHeight+previousHeight)/2)}px`);
-    step.querySelector('.award-amount').innerHTML=`${numberTR.format(amount)} <small>TL</small>`;
+    step.querySelector('.award-amount').innerHTML=`${numberFormat.format(amount)} <small>TL</small>`;
   });
   $('#awardPanel').setAttribute('aria-labelledby',current.id);
 }
+setAward('kurumlar');
 awardButtons.forEach((b,index)=>{
   b.addEventListener('click',()=>setAward(b.dataset.category));
   b.addEventListener('keydown',e=>{
@@ -107,9 +142,10 @@ awardButtons.forEach((b,index)=>{
 
 // Mobile navigation.
 const menuBtn=$('#menuToggle');const nav=$('#mainNav');
-function closeNav(){menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Menüyü aç');nav.classList.remove('is-open');}
-menuBtn.addEventListener('click',()=>{const open=menuBtn.getAttribute('aria-expanded')!=='true';menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Menüyü kapat':'Menüyü aç');nav.classList.toggle('is-open',open);});
-$$('#mainNav a').forEach(a=>a.addEventListener('click',closeNav));
+function closeNav(){menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label',UI.menuOpen);nav.classList.remove('is-open');}
+menuBtn.addEventListener('click',()=>{const open=menuBtn.getAttribute('aria-expanded')!=='true';menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?UI.menuClose:UI.menuOpen);nav.classList.toggle('is-open',open);});
+$('#mainNav a').forEach(a=>a.addEventListener('click',closeNav));
+$('.lang-switch a').forEach(a=>a.addEventListener('click',()=>{a.href=a.getAttribute('href').split('#')[0]+window.location.hash;}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav();});
 document.addEventListener('click',e=>{if(!nav.contains(e.target)&&!menuBtn.contains(e.target))closeNav();});
 
