@@ -29,7 +29,7 @@ Ana yarışma: https://basaksehirlivinglab.com/basaksehir-living-lab-inovasyon-y
 
 Başvuru: https://bllkulucka.basaksehirlivinglab.org/e/basaksehir-living-lab-13-13-inovasyon-yarismasi-basvurusu
 
-İçerik 18 Kasım 2026 tarihindeki kaynaklara göre düzenlendi. Son başvuru: 15 Ocak 2027, saat 23.59; diğer 2027 tarihleri ve ödül tutarları resmî şartnameden alındı.
+İçerik 18 Kasım 2026 tarihindeki kaynaklara göre düzenlendi. Son başvuru: 15 Ocak 2027; diğer 2027 tarihleri ve ödül tutarları resmî şartnameden alındı.
 
 ## Yayından önce
 

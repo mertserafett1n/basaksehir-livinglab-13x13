@@ -227,7 +227,7 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
 .lang-switch a:hover{color:var(--teal-dark)}
 .lang-switch a[aria-current="page"]{color:#fff;background:var(--ink-deep)}
 .faq-downloads{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:21px}
-.faq-downloads a{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;max-width:100%;font-size:12px;line-height:1.4;font-weight:700;text-decoration:none;color:#285365;background:#fff;border:1px solid #d7e5e8;border-radius:9px;padding:10px 12px;transition:border-color .2s,color .2s,transform .2s}
+.faq-downloads a{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;max-width:100%;font-size:14px;line-height:1.4;font-weight:700;text-decoration:none;color:#285365;background:#fff;border:1px solid #d7e5e8;border-radius:9px;padding:11px 14px;transition:border-color .2s,color .2s,transform .2s}
 .faq-downloads a span{color:var(--teal-dark);font-size:15px;line-height:1}
 .faq-downloads a:hover{color:var(--teal-dark);border-color:#70c6c8;transform:translateY(-2px)}
 .footer-email-placeholder{color:#d5e2e7;font-size:13px;font-weight:650}
@@ -279,7 +279,7 @@ main>section{position:relative;isolation:isolate}main>section>.container{positio
   .award-rank{font-size:78px;right:18px;bottom:12px;opacity:.4}
   .faq-list summary{min-height:58px;font-size:16px}
   .faq-list details p{font-size:15px}
-  .faq-downloads a{min-height:44px;font-size:13px}
+  .faq-downloads a{min-height:44px;font-size:15px}
   .footer-links a,.footer-meta a{font-size:14px;min-height:30px}
 }
 @media(max-width:600px){
